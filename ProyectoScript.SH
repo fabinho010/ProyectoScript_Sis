@@ -18,5 +18,5 @@ while [controlador=false];
             then
             read -p "introduzca la base del cuadrado" cuadrado
             for i in $cuadrado;
-
+ 
 
