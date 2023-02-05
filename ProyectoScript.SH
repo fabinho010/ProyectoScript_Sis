@@ -48,7 +48,7 @@ do
              echo "Demasiado pequeño vuleve a probar: "
              read numero
        done
-       echo "Henorabuena has conseguido descifrar el numero $adivinar oculto"
+       echo "enhorabuena has conseguido descifrar el numero $adivinar oculto"
 
             
       else
