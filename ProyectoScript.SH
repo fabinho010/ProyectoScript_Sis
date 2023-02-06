@@ -2,7 +2,7 @@
 function header(){
       echo "******************************************************"
       echo "*                                                    *"
-      echo "*        BIENVENIDO A DESCUBRIR EL NUMERO            *"
+      echo "*        BIENVENIDO A DESCUBRIR EL NÚMERO            *"
       echo "*                                                    *"
       echo "******************************************************"
       echo "                                                       "
@@ -13,7 +13,7 @@ function menu(){
       echo "*                                                    *"
       echo "*            SELECCIONA UNA OPCIÓN                   *"
       echo "*                                                    *"
-      echo "*      1. DESCUBRE EL NUMERO EN UN RANGO ESPECIFICO  *"
+      echo "*      1. DESCUBRE EL NÚMERO EN UN RANGO ESPECÍFICO  *"
       echo "*                                                    *"
       echo "*      2. SALIR                                      *"
       echo "*                                                    *"
@@ -22,40 +22,35 @@ function menu(){
 
 header
 menu
-read opcion
+read -p "Introdudzca aquí tu elección: " opcion
 
-while [ $opcion != 2 ];
-do
-      indice=0
-      if [[ $opcion -eq 1 ]];
-      then
-       echo "Introduce el numero mínimo: "
-       read minimo
-       echo "Introduce el numero maximo: "
-       read maximo
-       adivinar=$(($maximo-$minimo+1))
-       echo "Introduce un numero: "
-       read numero
-       while [ $numero -ne $adivinar ]
-       do
-            if [[ $numero > adivinar ]];
+while [ $opcion != 2 ];do
+      indice=1
+      if [[ $opcion -eq 1 ]]
+       then
+       read -p "Introduzca el numero mínimo: " minimo
+       read -p "Introduzca el numero máximo: " maximo
+       adivinar=$(($minimo + $RANDOM % $maximo))
+       read -p "Adivine el número: "  numero;
+       while [ $numero -ne $adivinar ];do
+            if [[ $numero -gt adivinar ]]
             then
              indice=$((indice+1))
-             echo "Demasiado grande vuelve  aprobar: "
-             read numero
+             read -p "Demasiado grande vuelve a probar: " numero
             else
              indice=$((indice+1))
-             echo "Demasiado pequeño vuleve a probar: "
-             read numero
-            fi
+             read -p "Demasiado pequeño el numero,vuelve a probar: " numero;
+             fi
        done
-       echo "enhorabuena has conseguido descifrar el numero $adivinar oculto"
+       echo "Enhorabuena!!! Has conseguido descifrar el numero oculto que es el $adivinar"
+       echo "Lo has acertado en $indice intentos."
 
-            
+
       else
-            echo "Numero introducido incorrecto"
+            echo "Valor introducido incorrecto.Vuelva a introducirlo"
       fi
       menu
-      read opcion
+      read -p "Introduzca tu elección: " opcion
 done
 
+echo "Gracias por jugar!!Vuelva la proxima vez"
