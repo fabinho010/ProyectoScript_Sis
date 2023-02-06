@@ -24,21 +24,21 @@ header
 menu
 read opcion
 
-while [ $opcion != 2 ]
+while [ $opcion != 2 ];
 do
       indice=0
-      if [[ $opcion -eq 1 ]]
+      if [[ $opcion -eq 1 ]];
       then
        echo "Introduce el numero mínimo: "
        read minimo
        echo "Introduce el numero maximo: "
        read maximo
-       adivinar=$[ $RANDOM % "$minimo" + "$maximo" ]
+       adivinar=$(($maximo-$minimo+1))
        echo "Introduce un numero: "
        read numero
        while [ $numero -ne $adivinar ]
        do
-            if [[ $numero > adivinar ]]
+            if [[ $numero > adivinar ]];
             then
              indice=$((indice+1))
              echo "Demasiado grande vuelve  aprobar: "
@@ -47,10 +47,9 @@ do
              indice=$((indice+1))
              echo "Demasiado pequeño vuleve a probar: "
              read numero
+            fi
        done
-       echo "Henorabuena has conseguido descifrar el numero $adivinar oculto"
-
-            
+       echo "Henorabuena has conseguido descifrar el numero $adivinar oculto"    
       else
             echo "Numero introducido incorrecto"
       fi
