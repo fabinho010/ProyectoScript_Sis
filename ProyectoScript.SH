@@ -49,7 +49,9 @@ do
              read numero
             fi
        done
-       echo "Henorabuena has conseguido descifrar el numero $adivinar oculto"    
+       echo "enhorabuena has conseguido descifrar el numero $adivinar oculto"
+
+            
       else
             echo "Numero introducido incorrecto"
       fi
